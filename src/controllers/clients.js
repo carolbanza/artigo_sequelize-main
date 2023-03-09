@@ -19,7 +19,8 @@ function addClient(req,res){
 async function updateClient(req,res){
     await ClientRepository.update({
         nome: req.body.nome,
-        email: req.body.email
+        email: req.body.email,
+        idade: req.body.idade
     },
     {
         where: {
