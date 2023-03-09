@@ -17,4 +17,10 @@ export default db.define('client', {
         allowNull: false,
         unique: true
     },
+    idade:{
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        
+
+    }
 })
