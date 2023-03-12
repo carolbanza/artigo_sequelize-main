@@ -14,13 +14,7 @@ export default db.define('client', {
     },
     email: {
         type: Sequelize.STRING,
-        allowNull: false,
-        unique: true
+        allowNull: false
     },
-    idade:{
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        
-
-    }
+    
 })
