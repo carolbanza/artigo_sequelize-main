@@ -49,6 +49,8 @@ app.post('/clientesAdd', async (req, res) => {
   
    res.redirect("/clientesAll")
 
+
+ // Rota para retorno dos dados  
 app.get('/clientesAll', (req, res) => {
 
   User.findAll().then( (result) => res.json(result));
