@@ -6,13 +6,10 @@
     <title>Document</title>
 </head>
 <body>
+
+  {{{body}}}
     <h1>Usuário Cadastrado com Sucesso</h1>
 
-    <ul>
-    {{#each users}}
-      <li>{{id}}</li>
-      <li>{{nome}}</li>
-    {{/each}}
-  </ul>
+    <p>O nome do usuário é {{user.nome}} e o seu E-mail é {{user.email}}</p>
 </body>
 </html>

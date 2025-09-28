@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
 import bodyParser from "body-parser";
-import clientes from "./src/controllers/clients.js"
+import clients from "./src/controllers/clients.js"
 import exphbs from "express-handlebars"
 
 
@@ -34,20 +34,25 @@ app.get('/', (req, res) =>{
 })
 // Rota para receber e processar os dados do formulário
 app.post('/clientesAdd', (req, res) => {
+  
 
-  let nome = req.body.nome
-  let email = req.body.email
+  const user = {
 
+   nome : req.body.nome,
+
+   email : req.body.email,
+
+  }
+
+  res.render("mostrar", {user})
 
   
-  console.log(`Meu nome é ${nome} e meu e-mail é: ${email}`)
-
-  res.render("mostrar")
 });
 
 
 db.sync( () => 
     console.log(`Banco de dados conectado: ${bd}`)
+
 ).catch( (e) => {
 
   console.log(`Algo deu errado ${e}`)
