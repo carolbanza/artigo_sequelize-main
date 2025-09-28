@@ -43,8 +43,6 @@ app.post('/clientesAdd', async (req, res) => {
    const nome = req.body.nome
 
    const email = req.body.email
-
-
   
  await User.create({nome, email})
   
@@ -62,9 +60,6 @@ dataBase.authenticate( () => {
  
 
 });
-
-
-
 
 app.listen(port, () => 
     console.log(`Servidor iniciado na porta ${port}`)
