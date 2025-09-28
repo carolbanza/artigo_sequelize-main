@@ -51,7 +51,7 @@ app.post('/clientesAdd', (req, res) => {
 
 
 db.sync( () => 
-    console.log(`Banco de dados conectado: ${bd}`)
+    console.log(`Banco de dados conectado: ${db}`)
 
 ).catch( (e) => {
 
