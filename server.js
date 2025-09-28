@@ -47,18 +47,13 @@ app.post('/clientesAdd', async (req, res) => {
   
    await User.create({nome, email})
   
-   res.redirect("/clientesAll")
+   res.status(200).redirect("/clientesAll")
 
 
  // Rota para retorno dos dados  
 app.get('/clientesAll', (req, res) => {
 
-  User.findAll().then( (result) => res.status(200).json({
-  
-    status: 'Success'
-
-
-  }));
+  User.findAll().then( (result) => res.status(200).json(result));
 
 
 })
