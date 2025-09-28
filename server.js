@@ -47,7 +47,7 @@ app.post('/clientesAdd', async (req, res) => {
   
    await User.create({nome, email})
   
-res.redirect("/clientesAll")
+   res.redirect("/clientesAll")
 
 app.get('/clientesAll', (req, res) => {
 
