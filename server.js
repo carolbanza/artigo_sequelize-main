@@ -36,7 +36,7 @@ app.get('/', (req, res) =>{
   res.render("index")
 })
 // Rota para receber e processar os dados do formulário
-app.post('/clientesAdd', (req, res) => {
+app.post('/clientesAdd', async (req, res) => {
   
   
 
@@ -46,9 +46,9 @@ app.post('/clientesAdd', (req, res) => {
 
 
   
-  User.create({nome, email})
+ await User.create({nome, email})
   
-res.render("mostrar")
+res.redirect("/clientsTodos")
   
 });
 
