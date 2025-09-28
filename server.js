@@ -28,6 +28,8 @@ app.use(bodyParser.json());
 //app.use(express.urlencoded({extended: true}))
 
 
+const port = 3000
+
 app.get('/', (req, res) =>{
 
   res.render("index")
@@ -51,16 +53,20 @@ app.post('/clientesAdd', (req, res) => {
 });
 
 
-dataBase.sync( () => 
+dataBase.authenticate( () => 
     console.log(`Banco de dados conectado: ${dataBase}`)
 
-).catch( (e) => {
+).catch( (error) => {
 
-  console.log(`Algo deu errado ${e}`)
-  
+  console.log(`Algo deu errado ${error}`)
+ 
+
 });
 
-app.listen(3000, () => 
-    console.log('Servidor iniciado na porta 3000')
+
+
+
+app.listen(port, () => 
+    console.log(`Servidor iniciado na porta ${port}`)
 );
 
