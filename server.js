@@ -41,8 +41,6 @@ app.get('/', (req, res) =>{
 // Rota para receber e processar os dados do formulário
 app.post('/clientesAdd', async (req, res) => {
   
-  
-
    const nome = req.body.nome
 
    const email = req.body.email
