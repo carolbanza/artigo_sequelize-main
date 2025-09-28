@@ -1,6 +1,7 @@
 import express from 'express';
 import routes from './routes.js';
 import dataBase from './src/db.js';
+import User from './src/models/clientsModel.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
@@ -38,25 +39,23 @@ app.get('/', (req, res) =>{
 app.post('/clientesAdd', (req, res) => {
   
 
-  const user = {
+   const nome = req.body.nome
 
-   nome : req.body.nome,
+   const email = req.body.email
 
-   email : req.body.email,
 
-  }
 
+  User.create({nome, email})
   
-  res.render("mostrar", {user})
-
+res.render("mostrar")
   
 });
 
 
-dataBase.authenticate( () => 
+dataBase.authenticate( () => {
     console.log(`Banco de dados conectado: ${dataBase}`)
 
-).catch( (error) => {
+}).catch( (error) => {
 
   console.log(`Algo deu errado ${error}`)
  
