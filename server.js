@@ -28,7 +28,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //app.use(express.urlencoded({extended: true}))
 
+//timezone
+const options = { timeZone: 'America/Sao_Paulo' };
 
+    
 const port = 3000
 
 app.get('/', (req, res) =>{
