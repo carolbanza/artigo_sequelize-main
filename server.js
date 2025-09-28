@@ -45,7 +45,7 @@ app.post('/clientesAdd', async (req, res) => {
 
    const email = req.body.email
   
- await User.create({nome, email})
+   await User.create({nome, email})
   
 res.redirect("/clientsTodos")
   
