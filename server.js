@@ -53,7 +53,7 @@ app.post('/clientesAdd', async (req, res) => {
  // Rota para retorno dos dados  
 app.get('/clientesAll', (req, res) => {
 
-  User.findAll().then( (result) => res.json(result));
+  User.findAll().then( (result) => res.status(200).json(result));
 
 
 })
