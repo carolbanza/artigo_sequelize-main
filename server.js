@@ -38,13 +38,14 @@ app.get('/', (req, res) =>{
 // Rota para receber e processar os dados do formulário
 app.post('/clientesAdd', (req, res) => {
   
+  
 
    const nome = req.body.nome
 
    const email = req.body.email
 
 
-
+  
   User.create({nome, email})
   
 res.render("mostrar")
