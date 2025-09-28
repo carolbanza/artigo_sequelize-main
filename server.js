@@ -44,6 +44,7 @@ app.post('/clientesAdd', (req, res) => {
 
   }
 
+  
   res.render("mostrar", {user})
 
   
