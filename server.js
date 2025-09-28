@@ -1,6 +1,6 @@
 import express from 'express';
 import routes from './routes.js';
-import db from './src/db.js';
+import dataBase from './src/db.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
@@ -50,8 +50,8 @@ app.post('/clientesAdd', (req, res) => {
 });
 
 
-db.sync( () => 
-    console.log(`Banco de dados conectado: ${db}`)
+dataBase.sync( () => 
+    console.log(`Banco de dados conectado: ${dataBase}`)
 
 ).catch( (e) => {
 
