@@ -1,5 +1,8 @@
 import express from 'express';
 import routes from './routes.js';
+
+import session  from 'express-session';
+import jwt from 'jsonwebtoken';
 import dataBase from './src/db.js';
 import User from './src/models/clientsModel.js';
 import { fileURLToPath } from 'url';
@@ -28,13 +31,25 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //app.use(express.urlencoded({extended: true}))
 
-//timezone
-const options = { timeZone: 'America/Sao_Paulo' };
+///////////////////////// TOKENS JWT
+
+ const payload = { userId: '123', email: 'renatotaguatinga36@gmail.com' };
+ const secretKey = '456alves'; // Keep this secure!
+ const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
+    console.log(token);
+
+// Configure sessions
+app.use(session({
+  secret: 'your-secret-key',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { secure: process.env.NODE_ENV === 'production', maxAge: 24 * 60 * 60 * 1000 } // 24 hours
+}));
 
     
 const port = 3000
 
-app.get('/', (req, res) =>{
+app.get('/', (req , res) =>{
 
   res.render("index")
 })
@@ -57,6 +72,28 @@ app.get('/clientesAll', (req, res) => {
 
 
 })
+
+app.get('/clientes/:id', async (req, res) =>{
+
+ const id = req.params.id;
+ 
+
+ await User.findByPk({
+
+  where: {
+
+    id: 'id',
+  },
+
+ });
+
+});
+
+app.delete('/clientes:id', (req, res) =>{
+
+    console.log(req.body.id);
+    // etc...
+});
   
 });
 
