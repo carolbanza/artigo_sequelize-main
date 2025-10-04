@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //app.use(express.urlencoded({extended: true}))
 
-///////////////////////// TOKENS JWT
+////////////////////////////////// TOKENS JWT
 
  const payload = { userId: '123', email: 'renatotaguatinga36@gmail.com' };
  const secretKey = '456alves'; // Keep this secure!
@@ -53,7 +53,9 @@ app.get('/', (req , res) =>{
 
   res.render("index")
 })
-// Rota para receber e processar os dados do formulário
+
+////////////////////// Rota para receber e processar os dados do formulário
+
 app.post('/clientesAdd', async (req, res) => {
   
    const nome = req.body.nome
