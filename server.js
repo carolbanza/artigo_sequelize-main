@@ -47,7 +47,7 @@ app.use(session({
 }));
 
     
-const port = 3000
+const PORT = 3000
 
 app.get('/clientesDel/:id', async (req, res) =>{
 
@@ -113,7 +113,7 @@ app.get('clientesUpdate/:id', () => {
 const id = req.params.id;
 
   User.update({  where: {id: id,}, 
-    
+
   
   });
 
@@ -127,7 +127,7 @@ dataBase.authenticate();
 
 
 
-app.listen(port, () => 
-    console.log(`Servidor iniciado na porta ${port}`)
+app.listen(PORT, () => 
+    console.log(`Servidor iniciado na porta ${PORT}`)
 );
 
