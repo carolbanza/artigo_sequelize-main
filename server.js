@@ -79,8 +79,6 @@ app.get('/clientes/:id', async (req, res) => {
 
 });
 
-
-
 app.get('/', (req , res) =>{
 
   res.render("index")
@@ -109,6 +107,17 @@ app.get('/clientesAll', (req, res) => {
   res.render("index")
 
 })
+
+app.get('clientesUpdate/:id', () => {
+
+const id = req.params.id;
+
+  User.update({  where: {id: id,}, 
+    
+  
+  });
+
+});
 
 });
 
