@@ -49,6 +49,19 @@ app.use(session({
     
 const port = 3000
 
+app.get('/clientesDel/:id', async (req, res) =>{
+
+    const id = req.params.id;
+    console.log(id);
+    
+    const IdDelete = await User.destroy({
+     where: {id: id,},
+
+   }).then( (result) => res.status(200).json(result));
+
+});
+
+
 app.get('/clientes/:id', async (req, res) => {
 
  const id = req.params.id;
@@ -63,7 +76,10 @@ app.get('/clientes/:id', async (req, res) => {
 
  const IdEncontrado = User.findByPk(id).then( (result) => res.status(200).json(result));
 
+
 });
+
+
 
 app.get('/', (req , res) =>{
 
@@ -90,17 +106,13 @@ app.get('/clientesAll', (req, res) => {
 
   User.findAll().then( (result) => res.status(200).json(result));
 
-  res.render("index2")
+  res.render("index")
 
 })
 
 
 
-app.delete('/clientes:id', (req, res) =>{
 
-    console.log(req.body.id);
-    // etc...
-});
   
 });
 
