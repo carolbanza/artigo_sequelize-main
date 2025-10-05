@@ -49,6 +49,22 @@ app.use(session({
     
 const port = 3000
 
+app.get('/clientes/:id', async (req, res) => {
+
+ const id = req.params.id;
+ 
+ console.log(id);
+
+ if (id) {
+  console.log('Registro encontrado:', id);
+} else {
+  console.log('Registro não encontrado.');
+}
+
+ const IdEncontrado = User.findByPk(id).then( (result) => res.status(200).json(result));
+
+});
+
 app.get('/', (req , res) =>{
 
   res.render("index")
@@ -74,24 +90,11 @@ app.get('/clientesAll', (req, res) => {
 
   User.findAll().then( (result) => res.status(200).json(result));
 
+  res.render("index2")
 
 })
 
-app.get('/clientes/:id', async (req, res) =>{
 
- const id = req.params.id;
- 
-
- await User.findByPk({
-
-  where: {
-
-    id: 'id',
-  },
-
- }).then( (result) => res.json(result))
-
-});
 
 app.delete('/clientes:id', (req, res) =>{
 
