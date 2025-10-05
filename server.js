@@ -31,9 +31,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 //app.use(express.urlencoded({extended: true}))
 
-////////////////////////////////// TOKENS JWT
+////////////////////////////////////// TOKENS JWT /////////////////////////////////////////////////
 
- const payload = { userId: '123', email: 'renatotaguatinga36@gmail.com' };
+ const payload = { nome: 'Renato Alves Soares', userId: '123', email: 'renatotaguatinga36@gmail.com' };
  const secretKey = '456alves'; // Keep this secure!
  const token = jwt.sign(payload, secretKey, { expiresIn: '1h' });
     console.log(token);
@@ -61,8 +61,10 @@ app.post('/clientesAdd', async (req, res) => {
    const nome = req.body.nome
 
    const email = req.body.email
+
+   const senha = req.body.senha
   
-   await User.create({nome, email})
+   await User.create({nome, email, senha})
   
    res.status(200).redirect("/clientesAll")
 
@@ -87,7 +89,7 @@ app.get('/clientes/:id', async (req, res) =>{
     id: 'id',
   },
 
- });
+ }).then( (result) => res.json(result))
 
 });
 
@@ -100,15 +102,10 @@ app.delete('/clientes:id', (req, res) =>{
 });
 
 
-dataBase.authenticate( () => {
-    console.log(`Banco de dados conectado: ${dataBase}`)
+dataBase.authenticate();
 
-}).catch( (error) => {
 
-  console.log(`Algo deu errado ${error}`)
- 
 
-});
 
 app.listen(port, () => 
     console.log(`Servidor iniciado na porta ${port}`)

@@ -19,5 +19,12 @@ export default db.define('client', {
         type: Sequelize.STRING,
         allowNull: false
     },
+
+    senha:{
+
+        type: Sequelize.STRING,
+        allowNull: false
+
+    }
     
 })
