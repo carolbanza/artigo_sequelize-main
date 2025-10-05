@@ -112,7 +112,7 @@ app.get('clientesUpdate/:id', () => {
 
 const id = req.params.id;
 
-  User.update({  where: {id: id,}, 
+  User.update({  where: {id: id, raw:true}, 
 
   
   });
