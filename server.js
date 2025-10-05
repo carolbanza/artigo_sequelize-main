@@ -110,10 +110,6 @@ app.get('/clientesAll', (req, res) => {
 
 })
 
-
-
-
-  
 });
 
 
