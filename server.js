@@ -74,7 +74,7 @@ app.get('/clientes/:id', async (req, res) => {
   console.log('Registro não encontrado.');
 }
 
- const IdEncontrado = User.findByPk(id).then( (result) => res.status(200).json(result));
+ const IdEncontrado = await User.findByPk(id).then( (result) => res.status(200).json(result));
 
 
 });
