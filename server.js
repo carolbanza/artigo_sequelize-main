@@ -1,6 +1,7 @@
 import express from 'express';
 import routes from './routes.js';
 
+
 import session  from 'express-session';
 import jwt from 'jsonwebtoken';
 import dataBase from './src/db.js';
@@ -74,7 +75,9 @@ app.get('/clientes/:id', async (req, res) => {
   console.log('Registro não encontrado.');
 }
 
- const IdEncontrado = await User.findByPk(id).then( (result) => res.status(200).json(result));
+ const IdEncontrado = await User.findByPk(id).then( (result) => res.status(200).json(result)).catch((e) => {
+    console.error(e.message); // "oh, no!"
+  });
 
 
 });
